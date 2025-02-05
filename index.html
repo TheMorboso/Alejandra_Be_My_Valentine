@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script> </head>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
 <body class="bg-gray-50">
-<main class="w-full mt-20 overflow-hidden">  
-    <div id="carousel" class="flex transition-transform duration-500 ease-in-out"> 
-        <div class="mx-4 p-4 bg-white rounded-lg shadow-md flex-shrink-0 w-full">  
+
+<main class="w-full mt-20">  
+    <div id="carousel" class="flex snap-x snap-mandatory overflow-x-hidden scroll-smooth"> 
+        <div class="mx-4 p-4 bg-white rounded-lg shadow-md flex-shrink-0 w-screen">  
             <div>
                 <img id="myGIF" src="love.gif" alt="">
             </div>
@@ -22,13 +24,11 @@
             </div>
         </div>
 
-        <!-- Duplicate slide content as needed -->
-        <div class="mx-4 p-4 bg-white rounded-lg shadow-md flex-shrink-0 w-full">
+        <div class="mx-4 p-4 bg-white rounded-lg shadow-md flex-shrink-0 w-screen">
              <div>
                 <img id="myGIF2" src="love2.gif" alt="">  </div>
             <h1 class="text-2xl text-center mt-8">¡Feliz día de San Valentín!</h1>
         </div>
-
 
     </div>
     <div class="flex justify-center mt-4">
@@ -44,14 +44,15 @@
     let currentIndex = 0;
 
     nextButton.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % carousel.children.length; 
-        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+        currentIndex = (currentIndex + 1) % carousel.children.length;
+        carousel.children[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
     });
 
     prevButton.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + carousel.children.length) % carousel.children.length;  
-        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+        currentIndex = (currentIndex - 1 + carousel.children.length) % carousel.children.length;
+        carousel.children[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
     });
 </script>
+
 </body>
 </html>
