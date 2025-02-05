@@ -67,7 +67,7 @@ noValentinButton.addEventListener('click', () => {
         // Set the new modal content:
         modalText.innerHTML = `
             <div class="text-center">
-            <p class="text-xl mb-4">Este sera mi primer 14 de febrero con alguien y me alegro seas tu, </p>
+            <p class="text-xl mb-4">Este sera mi primer 14 de febrero con alguien y me alegro seas tu</p>
             <h1 class="text-3xl font-bold mb-2">¡Te quiero mucho! 💕</h1>
             <h2></h2>
             <img src="us.jpg" alt="Celebración" class="w-full rounded-md h-auto mt-4">
