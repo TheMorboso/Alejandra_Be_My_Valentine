@@ -4,22 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-</head>
+    <script src="https://cdn.tailwindcss.com"></script> </head>
 <body class="bg-gray-50">
-<main class="w-full mt-20">
-    <div class="mx-auto  w-2/3 flex justify-center items-center">
-        <div class="">
+<main class="w-full mt-20 overflow-hidden">  
+    <div id="carousel" class="flex transition-transform duration-500 ease-in-out"> 
+        <div class="mx-4 p-4 bg-white rounded-lg shadow-md flex-shrink-0 w-full">  
             <div>
-                <img id="myGIF" src="love.gif " alt="">
+                <img id="myGIF" src="love.gif" alt="">
             </div>
-            <div class="text-center">
-               <h1 class="text-xl italic"> <span class="font-bold">Alejandra</span> te queria preguntar...</h1>
-               <h1 class="text-xl">¿Serias mi valentin?</h1>
+            <div class="text-center mt-4">
+                <h1 class="text-xl italic"><span class="font-bold">Alejandra</span> te quería preguntar...</h1>
+                <h1 class="text-xl">¿Serias mi valentín?</h1>
+            </div>
+            <div class="flex justify-center mt-4"> 
+                <button class="px-4 py-2 mr-2 bg-blue-500 text-white rounded hover:bg-blue-700">Sí</button>
+                <button class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-700">No</button>
             </div>
         </div>
+
+        <!-- Duplicate slide content as needed -->
+        <div class="mx-4 p-4 bg-white rounded-lg shadow-md flex-shrink-0 w-full">
+             <div>
+                <img id="myGIF2" src="love2.gif" alt="">  </div>
+            <h1 class="text-2xl text-center mt-8">¡Feliz día de San Valentín!</h1>
+        </div>
+
+
+    </div>
+    <div class="flex justify-center mt-4">
+        <button id="prevButton" class="px-4 py-2 mr-2 bg-gray-300 rounded hover:bg-gray-400">&lt;</button>
+        <button id="nextButton" class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">&gt;</button>
     </div>
 </main>
+
+<script>
+    const carousel = document.getElementById('carousel');
+    const prevButton = document.getElementById('prevButton');
+    const nextButton = document.getElementById('nextButton');
+    let currentIndex = 0;
+
+    nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % carousel.children.length; 
+        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    });
+
+    prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + carousel.children.length) % carousel.children.length;  
+        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    });
+</script>
 </body>
-<script src="main.js"></script>
 </html>
