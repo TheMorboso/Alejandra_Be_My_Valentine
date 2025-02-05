@@ -66,10 +66,13 @@ noValentinButton.addEventListener('click', () => {
     
         // Set the new modal content:
         modalText.innerHTML = `
-            <h1 class="text-3xl font-bold mb-2">¡Genial! 💕</h1>
-            <h2 class="text-xl mb-4">¡Sabía que dirías que sí!</h2>
+            <div class="text-center">
+            <h2 class="text-xl mb-4"></h2>
             <p>Aquí va algún texto adicional para el modal del sí.  Puedes poner lo que quieras.</p>
-            <img src="celebration.gif" alt="Celebración" class="w-full h-auto mt-4">
+            <h1 class="text-3xl font-bold mb-2">¡Te quiero mucho! 💕</h1>
+            <img src="us.jpg" alt="Celebración" class="w-full h-auto mt-4">
+            
+            </div>
         `;
     
         changeMindButton.classList.add("hidden");
