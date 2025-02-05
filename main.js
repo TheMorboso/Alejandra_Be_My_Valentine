@@ -1,14 +1,13 @@
-const carousel = document.getElementById('carousel');
-    const prevButton = document.getElementById('prevButton');
-    const nextButton = document.getElementById('nextButton');
-    let currentIndex = 0;
+const noButton = document.getElementById('noButton');
 
-    nextButton.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % carousel.children.length;
-        carousel.children[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-    });
+    noButton.addEventListener('click', () => {
+        const maxX = window.innerWidth - noButton.offsetWidth;
+        const maxY = window.innerHeight - noButton.offsetHeight;
 
-    prevButton.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + carousel.children.length) % carousel.children.length;
-        carousel.children[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+        const randomX = Math.floor(Math.random() * maxX);
+        const randomY = Math.floor(Math.random() * maxY);
+
+        noButton.style.position = 'absolute';
+        noButton.style.left = `${randomX}px`;
+        noButton.style.top = `${randomY}px`;
     });
