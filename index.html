@@ -21,8 +21,13 @@
             <button class="px-4 py-2 mr-2 bg-green-500 text-white rounded hover:bg-blue-700">Sí</button>
             <button id="noButton" class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-700">No</button>
             <div id="overlay" class="hidden fixed top-0 left-0 w-full h-full bg-black/50 z-10 flex items-center justify-center">
-                <div id="modal" class="hidden bg-white p-4 rounded shadow-md">
-                    <p id="modalText">This is the modal text.  It will appear after 20 clicks.</p>
+                <div id="modal" class="hidden bg-white p-4 rounded shadow-md relative"> 
+                    <button id="closeButton" class="absolute top-2 right-2 text-gray-600 hover:text-gray-800">&times;</button>
+                    <p id="modalText">Estas segura de no querer ser mi valentin?.</p>
+                    <div class="mt-4 flex justify-center">  <!-- Added container for buttons -->
+                        <button id="changeMindButton" class="px-4 py-2 mr-2 bg-green-500 text-white rounded hover:bg-blue-700">Cambié de opinión</button>
+                        <button id="noValentinButton" class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-700">No quiero ser tu valentín</button>
+                    </div>
                 </div>
             </div>
         </div>
