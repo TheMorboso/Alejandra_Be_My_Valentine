@@ -1,3 +1,4 @@
+const yesButton = document.getElementById('yesButton');
 const noButton = document.getElementById('noButton');
 const overlay = document.getElementById('overlay');
 const modal = document.getElementById('modal');
@@ -6,6 +7,8 @@ const changeMindButton = document.getElementById('changeMindButton');
 const noValentinButton = document.getElementById('noValentinButton');
 const modalText = document.getElementById('modalText'); // Get the modal text element
 let clickCount = 0;
+let noClicks = 0; // Counter for "No" button clicks
+
 
 closeButton.addEventListener('click', closeModal); // Use the function for both buttons
 
@@ -14,7 +17,7 @@ changeMindButton.addEventListener('click', closeModal);
 
 noButton.addEventListener('click', () => {
     clickCount++;
-    if (clickCount > 2) {
+    if (clickCount > 20) {
         overlay.classList.remove('hidden');
         modal.classList.remove('hidden');
 
@@ -56,4 +59,21 @@ noValentinButton.addEventListener('click', () => {
         overlay.classList.add('hidden');
         modal.classList.add('hidden');
     }
+
+    yesButton.addEventListener('click', () => {
+        overlay.classList.remove('hidden');
+        modal.classList.remove('hidden');
+    
+        // Set the new modal content:
+        modalText.innerHTML = `
+            <h1 class="text-3xl font-bold mb-2">¡Genial! 💕</h1>
+            <h2 class="text-xl mb-4">¡Sabía que dirías que sí!</h2>
+            <p>Aquí va algún texto adicional para el modal del sí.  Puedes poner lo que quieras.</p>
+            <img src="celebration.gif" alt="Celebración" class="w-full h-auto mt-4">
+        `;
+    
+        changeMindButton.classList.add("hidden");
+        noValentinButton.classList.add("hidden")
+    
+    });
     
